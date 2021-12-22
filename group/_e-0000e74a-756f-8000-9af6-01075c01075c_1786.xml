@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<groupHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_e-0000e74a-756f-8000-9af6-01075c01075c_1787</versionUuid>
+    <group>
+        <name>LCC EOA Resource Managers</name>
+        <securityMap>SECURITYMAP_PERSONAL</securityMap>
+        <uuid>_e-0000e74a-756f-8000-9af6-01075c01075c_1786</uuid>
+        <groupTypeUuid>SYSTEM_GROUP_TYPE_CUSTOM</groupTypeUuid>
+        <description></description>
+        <delegatedCreation>false</delegatedCreation>
+        <memberPolicy>MEMBERPOLICY_CLOSED</memberPolicy>
+        <viewingPolicy>VIEWINGPOLICY_HIGH</viewingPolicy>
+        <attributes/>
+    </group>
+    <members>
+        <users/>
+        <groups/>
+    </members>
+    <admins>
+        <users/>
+        <groups>
+            <groupUuid>_e-0000e74a-756f-8000-9af6-01075c01075c_1780</groupUuid>
+        </groups>
+    </admins>
+    <ruleSet/>
+    <history>
+        <historyInfo versionUuid="_e-0000e74a-756f-8000-9af6-01075c01075c_1787"/>
+    </history>
+</groupHaul>

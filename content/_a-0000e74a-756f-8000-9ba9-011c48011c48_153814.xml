@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e74a-756f-8000-9ba9-011c48011c48_163886</versionUuid>
+    <rule>
+        <name>LCC_EOA_DistrubutionByDepartment</name>
+        <uuid>_a-0000e74a-756f-8000-9ba9-011c48011c48_153814</uuid>
+        <description>This interface show distribution by department</description>
+        <parentUuid>_a-0000e74a-756f-8000-9ba9-011c48011c48_106094</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>{
+  #"SYSTEM_SYSRULES_sectionLayout_v1"(
+    label: "Pie Chart Reports",
+    contents: {
+      #"SYSTEM_SYSRULES_columnsLayout"(
+        columns: {
+          #"SYSTEM_SYSRULES_columnLayout"(
+            contents: {
+              #"SYSTEM_SYSRULES_pieChartField"(
+                data: #"urn:appian:record-type:v1:863cbd14-19a4-47f2-ad58-225a3714cb31",
+                config: #"SYSTEM_SYSRULES_pieChartConfig"(
+                  primaryGrouping: #"SYSTEM_SYSRULES_grouping"(
+                    field: #"urn:appian:record-field:v1:863cbd14-19a4-47f2-ad58-225a3714cb31/901cac25-29b8-4e71-bb44-4c1a6ab04a59",
+                    alias: "employeedepartment_primaryGrouping"
+                  ),
+                  measures: {
+                    #"SYSTEM_SYSRULES_measure"(
+                      function: "COUNT",
+                      field: #"urn:appian:record-field:v1:863cbd14-19a4-47f2-ad58-225a3714cb31/901cac25-29b8-4e71-bb44-4c1a6ab04a59",
+                      alias: "employeedepartment_count_measure1"
+                    )
+                  },
+                  dataLimit: 100
+                ),
+                label: "Distribution By Department",
+                labelPosition: "ABOVE",
+                showDataLabels: true,
+                showTooltips: true,
+                showAsPercentage: true,
+                colorScheme: "RAINFOREST",
+                style: "PIE",
+                seriesLabelStyle: "LEGEND",
+                height: "MEDIUM",
+                refreshAfter: "RECORD_ACTION"
+              )
+            }
+          ),
+          #"SYSTEM_SYSRULES_columnLayout"(
+            contents: {
+              #"SYSTEM_SYSRULES_pieChartField"(
+                data: #"urn:appian:record-type:v1:863cbd14-19a4-47f2-ad58-225a3714cb31",
+                config: #"SYSTEM_SYSRULES_pieChartConfig"(
+                  primaryGrouping: #"SYSTEM_SYSRULES_grouping"(
+                    field: #"urn:appian:record-field:v1:863cbd14-19a4-47f2-ad58-225a3714cb31/cad86b79-5319-4824-99eb-f8281108faa8",
+                    alias: "sponsorshiprequired_primaryGrouping"
+                  ),
+                  measures: {
+                    #"SYSTEM_SYSRULES_measure"(
+                      function: "COUNT",
+                      field: #"urn:appian:record-field:v1:863cbd14-19a4-47f2-ad58-225a3714cb31/d54f78ac-4c7a-4d67-98f3-2baa66f3f1e0",
+                      alias: "employeeid_count_measure1"
+                    )
+                  },
+                  dataLimit: 100
+                ),
+                label: "Sponsorship",
+                labelPosition: "ABOVE",
+                showDataLabels: true,
+                showTooltips: true,
+                showAsPercentage: true,
+                colorScheme: "RAINFOREST",
+                style: "DONUT",
+                seriesLabelStyle: "LEGEND",
+                height: "MEDIUM",
+                refreshAfter: "RECORD_ACTION"
+              )
+            }
+          )
+        }
+      )
+    }
+    
+  )
+}</definition>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e74a-756f-8000-9ba9-011c48011c48_163886"/>
+    </history>
+</contentHaul>

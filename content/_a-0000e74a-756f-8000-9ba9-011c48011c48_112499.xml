@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e74a-756f-8000-9ba9-011c48011c48_162305</versionUuid>
+    <rule>
+        <name>LCC_EOA_HM_AssignMentor</name>
+        <uuid>_a-0000e74a-756f-8000-9ba9-011c48011c48_112499</uuid>
+        <description>This is an interface for assigning mentor to employee</description>
+        <parentUuid>_a-0000e74a-756f-8000-9ba9-011c48011c48_106094</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>#"SYSTEM_SYSRULES_formLayout_v1"(
+  label: "",
+  contents: {
+    #"SYSTEM_SYSRULES_sectionLayout_v1"(
+      contents: {
+        #"SYSTEM_SYSRULES_cardLayout"(
+          contents: { #"_a-0000e74a-756f-8000-9ba9-011c48011c48_110153"(ri!employeeInput) },
+          height: "AUTO",
+          style: "NONE",
+          marginBelow: "STANDARD"
+        )
+      }
+    ),
+    #"SYSTEM_SYSRULES_sectionLayout_v1"(
+      label: "Assign Mentor",
+      labelSize: "MEDIUM" ,
+      contents: {
+        #"SYSTEM_SYSRULES_sideBySideLayout"(
+          items: {
+            #"SYSTEM_SYSRULES_sideBySideItem"(
+              item: #"SYSTEM_SYSRULES_pickerFieldUsers"(
+                label: "Mentor",
+                labelPosition: "ABOVE",
+                maxSelections: 1,
+                value: ri!employeeInput.mentorname,
+                saveInto: ri!employeeInput.mentorname,
+                required: true,
+                requiredMessage: "Please enter a name",
+                validations: {}
+              )
+            )
+          }
+          
+        )
+      }
+    )
+  },
+  buttons: #"SYSTEM_SYSRULES_ButtonLayout"(
+    primaryButtons: {
+      #"SYSTEM_SYSRULES_ButtonWidget"(
+        label: "Assign",
+        icon: "check",
+        
+        submit: true,
+        style: "PRIMARY"
+      )
+    },
+    secondaryButtons: {
+      #"SYSTEM_SYSRULES_ButtonWidget"(
+        label: "Cancel",
+        icon: "times",
+        value: true,
+        saveInto: {},
+        submit: true,
+        style: "DESTRUCTIVE",
+        validate: false
+      )
+    }
+    
+  )
+)</definition>
+        <namedTypedValue>
+            <name>employeeInput</name>
+            <type>
+                <name>EOA_lcc_eoa_employee_record</name>
+                <namespace>urn:com:appian:types:EOA</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>cancel</name>
+            <type>
+                <name>boolean</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig?list</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <el>
+                <a:name/>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="a:Expression">#"_a-0000e74a-756f-8000-9ba9-011c48011c48_117332"(5004)</a:value>
+                    <a:nameRef>employeeInput</a:nameRef>
+                    <a:id>1</a:id>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="xsd:boolean"/>
+                    <a:nameRef>cancel</a:nameRef>
+                    <a:id>2</a:id>
+                </a:ruleInputTestConfigs>
+                <a:assertions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+            </el>
+        </value>
+    </typedValue>
+    <history>
+        <historyInfo versionUuid="_a-0000e74a-756f-8000-9ba9-011c48011c48_131460"/>
+        <historyInfo versionUuid="_a-0000e74a-756f-8000-9ba9-011c48011c48_162305"/>
+    </history>
+</contentHaul>

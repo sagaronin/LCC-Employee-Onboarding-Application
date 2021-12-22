@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e74a-756f-8000-9ba9-011c48011c48_163242</versionUuid>
+    <rule>
+        <name>LCC_EOA_RM_AddNewEmployee</name>
+        <uuid>_a-0000e74a-756f-8000-9ba9-011c48011c48_112326</uuid>
+        <description>This is an interface to add new employees by the resource manager</description>
+        <parentUuid>_a-0000e74a-756f-8000-9ba9-011c48011c48_106094</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>a!localVariables(
+  local!joiningDate: today(),
+  #"SYSTEM_SYSRULES_formLayout_v1"(
+    label: "Add New Employee",
+    contents: {
+      #"SYSTEM_SYSRULES_sectionLayout_v1"(
+        label: "Personal Details",
+        contents: {
+          #"SYSTEM_SYSRULES_sideBySideLayout"(
+            items: {
+              #"SYSTEM_SYSRULES_sideBySideItem"(
+                item: #"SYSTEM_SYSRULES_textField"(
+                  label: "First Name",
+                  labelPosition: "ABOVE",
+                  value: ri!employeeInput.firstname,
+                  saveInto: ri!employeeInput.firstname,
+                  refreshAfter: "UNFOCUS",
+                  required: true,
+                  requiredMessage: "First Name is required",
+                  validations: {}
+                )
+              ),
+              #"SYSTEM_SYSRULES_sideBySideItem"(
+                item: #"SYSTEM_SYSRULES_textField"(
+                  label: "Last Name",
+                  labelPosition: "ABOVE",
+                  value: ri!employeeInput.lastname,
+                  saveInto: ri!employeeInput.lastname,
+                  refreshAfter: "UNFOCUS",
+                  validations: {}
+                )
+              )
+            }
+          ),
+          #"SYSTEM_SYSRULES_sideBySideLayout"(
+            items: {
+              #"SYSTEM_SYSRULES_sideBySideItem"(
+                item: #"SYSTEM_SYSRULES_integerField"(
+                  label: "Phone Number",
+                  labelPosition: "ABOVE",
+                  value: ri!employeeInput.phonenumber,
+                  saveInto: ri!employeeInput.phonenumber,
+                  refreshAfter: "UNFOCUS",
+                  required: true,
+                  requiredMessage: "Please enter phone number",
+                  validations: {}
+                )
+              ),
+              #"SYSTEM_SYSRULES_sideBySideItem"(
+                item: #"SYSTEM_SYSRULES_textField"(
+                  label: "Email",
+                  labelPosition: "ABOVE",
+                  value: ri!employeeInput.email,
+                  saveInto: ri!employeeInput.email,
+                  refreshAfter: "UNFOCUS",
+                  required: true,
+                  requiredMessage: "Please enter email",
+                  validations: {}
+                )
+              )
+            }
+          )
+        }
+      ),
+      #"SYSTEM_SYSRULES_sectionLayout_v1"(
+        label: "Employment Details",
+        contents: {
+          #"SYSTEM_SYSRULES_sideBySideLayout"(
+            items: {
+              #"SYSTEM_SYSRULES_sideBySideItem"(
+                item: #"SYSTEM_SYSRULES_textField"(
+                  label: "Designation",
+                  labelPosition: "ABOVE",
+                  value: ri!employeeInput.designation,
+                  saveInto: ri!employeeInput.designation,
+                  refreshAfter: "UNFOCUS",
+                  required: true,
+                  requiredMessage: "Please enter a designation",
+                  validations: {}
+                )
+              ),
+              #"SYSTEM_SYSRULES_sideBySideItem"(
+                item: #"SYSTEM_SYSRULES_dropdownField_v1"(
+                  label: "Department",
+                  labelPosition: "ABOVE",
+                  placeholder: "--- Select Department ---",
+                  choiceLabels: {
+                    "Engineering",
+                    "Sales",
+                    "Finance",
+                    "Accounting",
+                    "Marketing"
+                  },
+                  choiceValues: {
+                    "Engineering",
+                    "Sales",
+                    "Finance",
+                    "Accounting",
+                    "Marketing"
+                  },
+                  value: ri!employeeInput.employeedepartment,
+                  saveInto: ri!employeeInput.employeedepartment,
+                  searchDisplay: "AUTO",
+                  required: true,
+                  requiredMessage: "Please assign a department",
+                  validations: {}
+                )
+              )
+            }
+          ),
+          #"SYSTEM_SYSRULES_sideBySideLayout"(
+            items: {
+              #"SYSTEM_SYSRULES_sideBySideItem"(
+                item: #"SYSTEM_SYSRULES_dropdownField_v1"(
+                  label: "Home Office Location",
+                  labelPosition: "ABOVE",
+                  placeholder: "--- Select Location---",
+                  choiceLabels: {
+                    "Dallas",
+                    "Austin",
+                    "San Francisco",
+                    "New York",
+                    "California",
+                    "Chicago"
+                  },
+                  choiceValues: {
+                    "Dallas",
+                    "Austin",
+                    "San Francisco",
+                    "New York",
+                    "California",
+                    "Chicago"
+                  },
+                  value: ri!employeeInput.worklocation,
+                  saveInto: ri!employeeInput.worklocation,
+                  searchDisplay: "AUTO",
+                  required: true,
+                  requiredMessage: "Please select a home office location",
+                  validations: {}
+                )
+              ),
+              #"SYSTEM_SYSRULES_sideBySideItem"(
+                item: #"SYSTEM_SYSRULES_dateField"(
+                  label: "Date of Joining",
+                  labelPosition: "ABOVE",
+                  value: ri!employeeInput.joiningdate,
+                  saveInto: ri!employeeInput.joiningdate,
+                  required: true,
+                  requiredMessage: "Please enter a joining date",
+                  validations: {
+                    if(
+                      ri!employeeInput.joiningdate &lt;= today(),
+                      "Please enter future date",
+                      ""
+                    )
+                  }
+                )
+              )
+            }
+          ),
+          #"SYSTEM_SYSRULES_sideBySideLayout"(
+            items: {
+              #"SYSTEM_SYSRULES_sideBySideItem"(
+                item: #"SYSTEM_SYSRULES_dropdownField_v1"(
+                  label: "Work Authorization",
+                  labelPosition: "ABOVE",
+                  placeholder: "--- Select a Status ---",
+                  choiceLabels: { "Yes", "No" },
+                  choiceValues: { true(), false()},
+                  value: ri!employeeInput.sponsorshiprequired,
+                  saveInto: ri!employeeInput.sponsorshiprequired,
+                  searchDisplay: "AUTO",
+                  required: true,
+                  requiredMessage: "Please select a work authorization",
+                  validations: {}
+                )
+              ),
+              #"SYSTEM_SYSRULES_sideBySideItem"(
+                item: #"SYSTEM_SYSRULES_dropdownField_v1"(
+                  label: "Foreign National",
+                  labelPosition: "ABOVE",
+                  placeholder: "--- Select a status ---",
+                  choiceLabels: { "Yes", "No" },
+                  choiceValues: { true(), false()},
+                  value: ri!employeeInput.foreignnational,
+                  saveInto: ri!employeeInput.foreignnational,
+                  searchDisplay: "AUTO",
+                  required: true,
+                  requiredMessage: "Please a foreign national status",
+                  validations: {}
+                )
+              )
+            }
+          ),
+          #"SYSTEM_SYSRULES_sideBySideLayout"(
+            items: {
+              #"SYSTEM_SYSRULES_sideBySideItem"(
+                item: #"SYSTEM_SYSRULES_dropdownField_v1"(
+                  label: "Past Employee",
+                  labelPosition: "ABOVE",
+                  placeholder: "--- Select a status ---",
+                  choiceLabels: { "Yes", "No" },
+                  choiceValues: { true(), false()},
+                  value: ri!employeeInput.pastemployee,
+                  saveInto: ri!employeeInput.pastemployee,
+                  searchDisplay: "AUTO",
+                  validations: {}
+                )
+              ),
+              #"SYSTEM_SYSRULES_sideBySideItem"(
+                item: #"SYSTEM_SYSRULES_pickerFieldUsers"(
+                  label: "User",
+                  labelPosition: "ABOVE",
+                  maxSelections: 1,
+                  groupFilter: #"_a-0000e74a-756f-8000-9ba9-011c48011c48_106132",
+                  value: ri!employeeInput.user,
+                  saveInto: ri!employeeInput.user,
+                  required: false,
+                  requiredMessage: "",
+                  validations: {}
+                )
+              )
+            }
+          ),
+          #"SYSTEM_SYSRULES_sideBySideLayout"(
+            items: {
+              #"SYSTEM_SYSRULES_sideBySideItem"(
+                item: #"SYSTEM_SYSRULES_pickerFieldUsers"(
+                  label: "Referred by",
+                  labelPosition: "ABOVE",
+                  maxSelections: 1,
+                  value: ri!employeeInput.referredby,
+                  saveInto: ri!employeeInput.referredby,
+                  validations: {}
+                )
+              ),
+              #"SYSTEM_SYSRULES_sideBySideItem"(
+                item: #"SYSTEM_SYSRULES_dropdownField_v1"(
+                  label: "Candidate Type",
+                  labelPosition: "ABOVE",
+                  placeholder: "--- Select a type ---",
+                  choiceLabels: { "University", "Experienced" },
+                  choiceValues: { "University", "Experienced" },
+                  value: ri!employeeInput.candidatetype,
+                  saveInto: ri!employeeInput.candidatetype,
+                  searchDisplay: "AUTO",
+                  validations: {}
+                )
+              )
+            }
+          )
+        }
+      ),
+      #"SYSTEM_SYSRULES_pickerFieldUsers"(
+        label: "Hiring Manager",
+        labelPosition: "ABOVE",
+        maxSelections: 1,
+        groupFilter: #"_a-0000e74a-756f-8000-9ba9-011c48011c48_106138",
+        value: ri!employeeInput.hiringmanager,
+        saveInto: ri!employeeInput.hiringmanager,
+        required: true,
+        requiredMessage: "Please select a hiring manager",
+        validations: {}
+      )
+    },
+    buttons: #"SYSTEM_SYSRULES_ButtonLayout"(
+      primaryButtons: {
+        #"SYSTEM_SYSRULES_ButtonWidget"(
+          label: "Submit",
+          value: loggedInUser(),
+          saveInto: ri!employeeInput.resourcemanager,
+          submit: true,
+          style: "PRIMARY"
+        )
+      },
+      secondaryButtons: {
+        #"SYSTEM_SYSRULES_ButtonWidget"(
+          label: "Cancel",
+          value: true,
+          saveInto: ri!cancel,
+          submit: true,
+          style: "NORMAL",
+          validate: false
+        )
+      }
+    )
+    
+  )
+)</definition>
+        <namedTypedValue>
+            <name>cancel</name>
+            <type>
+                <name>boolean</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>employeeInput</name>
+            <type>
+                <name>EOA_lcc_eoa_employee_record</name>
+                <namespace>urn:com:appian:types:EOA</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig?list</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <el>
+                <a:name/>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:boolean">false</a:value>
+                    <a:nameRef>cancel</a:nameRef>
+                    <a:id>1</a:id>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="a:Expression">#"_a-0000e74a-756f-8000-9ba9-011c48011c48_117332"(5004)</a:value>
+                    <a:nameRef>employeeInput</a:nameRef>
+                    <a:id>2</a:id>
+                </a:ruleInputTestConfigs>
+                <a:assertions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+            </el>
+        </value>
+    </typedValue>
+    <history>
+        <historyInfo versionUuid="_a-0000e74a-756f-8000-9ba9-011c48011c48_131525"/>
+        <historyInfo versionUuid="_a-0000e74a-756f-8000-9ba9-011c48011c48_163242"/>
+    </history>
+</contentHaul>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e74a-756f-8000-9ba9-011c48011c48_151849</versionUuid>
+    <rule>
+        <name>LCC_EOA_Sample</name>
+        <uuid>_a-0000e74a-756f-8000-9ba9-011c48011c48_151598</uuid>
+        <description></description>
+        <parentUuid>_a-0000e74a-756f-8000-9ba9-011c48011c48_106094</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>#"SYSTEM_SYSRULES_sectionLayout_v1"(
+  label: "Benefits",
+  contents: {
+    #"SYSTEM_SYSRULES_columnsLayout"(
+      columns: {
+        #"SYSTEM_SYSRULES_columnLayout"(
+          contents: {
+            #"SYSTEM_SYSRULES_checkboxField"(
+              label: "Medical Benefit",
+              labelPosition: "ABOVE",
+              choiceLabels: {"Medical","Vision", "Dental"},
+              choiceValues: {1, 2, 3},
+              saveInto: {},
+              validations: {}
+            )
+          }
+        ),
+        #"SYSTEM_SYSRULES_columnLayout"(
+          contents: {
+            #"SYSTEM_SYSRULES_checkboxField"(
+              label: "401k Benefits",
+              labelPosition: "ABOVE",
+              choiceLabels: {"Opt in"},
+              choiceValues: {true()},
+              saveInto: {},
+              validations: {}
+            )
+          }
+        ),
+        #"SYSTEM_SYSRULES_columnLayout"(
+          contents: {
+            #"SYSTEM_SYSRULES_checkboxField"(
+              label: "Discounted Meal Plan",
+              labelPosition: "ABOVE",
+              choiceLabels: {"Opt in"},
+              choiceValues: {true()},
+              saveInto: {},
+              validations: {}
+            )
+          }
+        )
+      }
+    ),
+    #"SYSTEM_SYSRULES_sectionLayout_v1"(
+      label: "Dependents",
+      contents: {
+        #"SYSTEM_SYSRULES_columnsLayout"(
+          columns: {
+            #"SYSTEM_SYSRULES_columnLayout"(
+              contents: {
+                #"SYSTEM_SYSRULES_dropdownField_v1"(
+                  label: "No Of Dependents",
+                  labelPosition: "ABOVE",
+                  placeholder: "--- Select a Value ---",
+                  choiceLabels: {
+                    "0",
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                    
+                  },
+                  choiceValues: {1, 2, 3, 4, 5, 6},
+                  saveInto: {},
+                  searchDisplay: "AUTO",
+                  validations: {}
+                )
+              }
+            ),
+            #"SYSTEM_SYSRULES_columnLayout"(
+              contents: {}
+            ),
+            #"SYSTEM_SYSRULES_columnLayout"(
+              contents: {}
+            )
+          }
+        )
+      }
+    )
+  }
+)
+
+
+</definition>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e74a-756f-8000-9ba9-011c48011c48_151849"/>
+    </history>
+</contentHaul>

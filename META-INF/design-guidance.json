@@ -1,0 +1,37 @@
+[
+  {
+    "objectUuid": "0002e75b-eb6d-8000-157a-7f0000014e7a",
+    "designGuidanceKey": "sysrule.designGuidance.processModel.displayNameNotDynamic",
+    "dismissed": true,
+    "instanceCount": 1,
+    "objectTypeName": "{http://www.appian.com/ae/types/2009}ProcessModel"
+  },
+  {
+    "objectUuid": "0002e75d-79ce-8000-183f-7f0000014e7a",
+    "designGuidanceKey": "sysrule.designGuidance.processModel.alertSettingsNotCustomized",
+    "dismissed": true,
+    "instanceCount": 1,
+    "objectTypeName": "{http://www.appian.com/ae/types/2009}ProcessModel"
+  },
+  {
+    "objectUuid": "0002e75d-79ce-8000-183f-7f0000014e7a",
+    "designGuidanceKey": "sysrule.designGuidance.processModel.displayNameNotDynamic",
+    "dismissed": true,
+    "instanceCount": 1,
+    "objectTypeName": "{http://www.appian.com/ae/types/2009}ProcessModel"
+  },
+  {
+    "objectUuid": "0002e75e-45ba-8000-18a1-7f0000014e7a",
+    "designGuidanceKey": "sysrule.designGuidance.processModel.alertSettingsNotCustomized",
+    "dismissed": true,
+    "instanceCount": 1,
+    "objectTypeName": "{http://www.appian.com/ae/types/2009}ProcessModel"
+  },
+  {
+    "objectUuid": "0002e75e-45ba-8000-18a1-7f0000014e7a",
+    "designGuidanceKey": "sysrule.designGuidance.processModel.displayNameNotDynamic",
+    "dismissed": true,
+    "instanceCount": 1,
+    "objectTypeName": "{http://www.appian.com/ae/types/2009}ProcessModel"
+  }
+]

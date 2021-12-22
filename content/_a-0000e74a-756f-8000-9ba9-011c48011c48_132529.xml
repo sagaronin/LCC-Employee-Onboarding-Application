@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e74a-756f-8000-9ba9-011c48011c48_162178</versionUuid>
+    <rule>
+        <name>LCC_EOA_RM_DistributionOfEmployeeByLocation</name>
+        <uuid>_a-0000e74a-756f-8000-9ba9-011c48011c48_132529</uuid>
+        <description>This is an interface to show report of training status in a bar chart</description>
+        <parentUuid>_a-0000e74a-756f-8000-9ba9-011c48011c48_106094</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>{
+  #"SYSTEM_SYSRULES_sectionLayout_v1"(
+    label: "Employee Distribution Across Location",
+    contents: {
+      #"SYSTEM_SYSRULES_columnsLayout"(
+        columns: {
+          #"SYSTEM_SYSRULES_columnLayout"(
+            contents: {
+              #"SYSTEM_SYSRULES_barChartField"(
+                data: #"urn:appian:record-type:v1:863cbd14-19a4-47f2-ad58-225a3714cb31",
+                config: #"SYSTEM_SYSRULES_barChartConfig"(
+                  primaryGrouping: #"SYSTEM_SYSRULES_grouping"(
+                    field: #"urn:appian:record-field:v1:863cbd14-19a4-47f2-ad58-225a3714cb31/e1518c56-ef55-4017-a867-4f8a749507e8",
+                    alias: "worklocation_primaryGrouping"
+                  ),
+                  measures: {
+                    #"SYSTEM_SYSRULES_measure"(
+                      label: "Count of Employees",
+                      function: "COUNT",
+                      field: #"urn:appian:record-field:v1:863cbd14-19a4-47f2-ad58-225a3714cb31/d54f78ac-4c7a-4d67-98f3-2baa66f3f1e0",
+                      alias: "employeeid_count_measure1"
+                    )
+                  },
+                  dataLimit: 100
+                ),
+                label: "Employee Count Across All Office Location",
+                labelPosition: "ABOVE",
+                xAxisTitle: "Locations",
+                yAxisTitle: "No. of Employees",
+                stacking: "NONE",
+                showLegend: true,
+                showTooltips: true,
+                colorScheme: "RAINFOREST",
+                height: "MEDIUM",
+                xAxisStyle: "STANDARD",
+                yAxisStyle: "STANDARD",
+                refreshAfter: "RECORD_ACTION"
+              )
+            }
+          )
+        }
+      )
+      
+    }
+    
+  ),
+  #"_a-0000e74a-756f-8000-9ba9-011c48011c48_153814"()
+  
+}</definition>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e74a-756f-8000-9ba9-011c48011c48_132548"/>
+        <historyInfo versionUuid="_a-0000e74a-756f-8000-9ba9-011c48011c48_162178"/>
+    </history>
+</contentHaul>

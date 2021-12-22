@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<siteHaul xmlns:a="http://www.appian.com/ae/types/2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <versionUuid>770d8319-1854-4d72-8f11-62a064fa80fa</versionUuid>
+  <site a:uuid="4049c8bc-fa0f-4fb8-964f-e37ec17a6cbf" name="LCC EOA Employee Website">
+    <description>This is a website for Wayne Enterprise employees</description>
+    <urlStub>weonboard</urlStub>
+    <page>
+      <staticName>My Profile</staticName>
+      <description/>
+      <urlStub>my-profile</urlStub>
+      <uiObject a:uuid="863cbd14-19a4-47f2-ad58-225a3714cb31" xsi:type="a:RecordType"/>
+      <iconId>f007</iconId>
+      <visibilityExpr>#"urn:appian:function:v1:a:isusermemberofgroup?okey=a!isUserMemberOfGroup"(loggedInUser(),#"_a-0000e74a-756f-8000-9ba9-011c48011c48_106132")</visibilityExpr>
+      <pageWidth>STANDARD</pageWidth>
+    </page>
+    <visibility>268435456</visibility>
+    <headerBackgroundColor>#073763</headerBackgroundColor>
+    <selectedTabBackgroundColor>#189ab4</selectedTabBackgroundColor>
+    <faviconRef a:uuid="SYSTEM_CONTENT_SITES_DEFAULT_FAVICON" xsi:type="a:CollaborationDocument"/>
+    <logoRef a:uuid="SYSTEM_CONTENT_SITES_DEFAULT_LOGO" xsi:type="a:CollaborationDocument"/>
+    <showName>false</showName>
+    <tempoLinkVisibility>HIDDEN</tempoLinkVisibility>
+    <showRecordNews>true</showRecordNews>
+    <tasksInSitesVisibility>HIDDEN</tasksInSitesVisibility>
+    <buttonShape>ROUNDED</buttonShape>
+    <navigationBarStyle>STYLE1</navigationBarStyle>
+    <inputShape>SEMI_ROUNDED</inputShape>
+    <isSystem>false</isSystem>
+  </site>
+  <roleMap>
+    <role name="site_administrator">
+      <users/>
+      <groups>
+        <groupUuid>_e-0000e74a-756f-8000-9af6-01075c01075c_1780</groupUuid>
+      </groups>
+    </role>
+  </roleMap>
+  <history>
+    <historyInfo versionUuid="770d8319-1854-4d72-8f11-62a064fa80fa"/>
+  </history>
+</siteHaul>

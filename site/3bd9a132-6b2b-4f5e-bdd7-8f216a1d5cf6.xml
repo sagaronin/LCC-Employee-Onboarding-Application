@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<siteHaul xmlns:a="http://www.appian.com/ae/types/2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <versionUuid>c7a040c0-0d31-45f1-9fb8-458f312a3300</versionUuid>
+  <site a:uuid="3bd9a132-6b2b-4f5e-bdd7-8f216a1d5cf6" name="LCC EOA Landing Page">
+    <description>This is a landing page for Wayne Enterprise Employees</description>
+    <urlStub>weonboard-landing</urlStub>
+    <page>
+      <staticName>HOME</staticName>
+      <description/>
+      <urlStub>home-page</urlStub>
+      <uiObject a:uuid="_a-0000e74a-756f-8000-9ba9-011c48011c48_106659" xsi:type="a:ContentFreeformRule"/>
+      <iconId>f015</iconId>
+      <visibilityExpr>fn!true()</visibilityExpr>
+      <pageWidth>WIDE</pageWidth>
+    </page>
+    <visibility>268435456</visibility>
+    <headerBackgroundColor>#073763</headerBackgroundColor>
+    <selectedTabBackgroundColor>#189ab4</selectedTabBackgroundColor>
+    <faviconRef a:uuid="SYSTEM_CONTENT_SITES_DEFAULT_FAVICON" xsi:type="a:CollaborationDocument"/>
+    <logoRef a:uuid="SYSTEM_CONTENT_SITES_DEFAULT_LOGO" xsi:type="a:CollaborationDocument"/>
+    <showName>false</showName>
+    <tempoLinkVisibility>HIDDEN</tempoLinkVisibility>
+    <showRecordNews>true</showRecordNews>
+    <tasksInSitesVisibility>HIDDEN</tasksInSitesVisibility>
+    <buttonShape>ROUNDED</buttonShape>
+    <navigationBarStyle>STYLE1</navigationBarStyle>
+    <inputShape>SEMI_ROUNDED</inputShape>
+    <isSystem>false</isSystem>
+  </site>
+  <roleMap>
+    <role name="site_administrator">
+      <users/>
+      <groups>
+        <groupUuid>_e-0000e74a-756f-8000-9af6-01075c01075c_1780</groupUuid>
+      </groups>
+    </role>
+  </roleMap>
+  <history>
+    <historyInfo versionUuid="c7a040c0-0d31-45f1-9fb8-458f312a3300"/>
+  </history>
+</siteHaul>

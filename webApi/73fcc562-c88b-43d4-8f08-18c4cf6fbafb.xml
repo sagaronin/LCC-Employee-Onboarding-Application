@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<webApiHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>35796a74-7f6e-4c24-add3-4b5df5f136d8</versionUuid>
+    <webApi a:uuid="73fcc562-c88b-43d4-8f08-18c4cf6fbafb" name="LCC_EOA_FetchEmployeeDetails">
+        <a:description>Web API to fetch employee record based on employee id</a:description>
+        <a:expression>a!localVariables(
+  /*
+  * Run the "queryrecord()" function on "cons!LCC_EOA_EMPLOYEE_RECORDTYPE" to retrieve data for the
+  * first 50 records and store this data in a local variable named "local!records".
+  */
+  local!records: /*queryrecord(*/
+  /*cons!LCC_EOA_EMPLOYEE_RECORDTYPE,*/
+  /*a!query(*/
+  /*pagingInfo: a!pagingInfo(*/
+  /*startIndex: 1,*/
+  /*batchSize: 50*/
+  /*),*/
+  #"SYSTEM_SYSRULES_queryRecordType_v1"(
+    recordType: #"urn:appian:record-type:v1:863cbd14-19a4-47f2-ad58-225a3714cb31",
+    filters: #"SYSTEM_SYSRULES_queryFilter"(
+      field: #"urn:appian:record-field:v1:863cbd14-19a4-47f2-ad58-225a3714cb31/d54f78ac-4c7a-4d67-98f3-2baa66f3f1e0",
+      operator: "=",
+      value: 5002
+    ),
+    pagingInfo: #"SYSTEM_SYSRULES_pagingInfo"(startIndex: 1, batchSize: 1)
+  ).data[1],
+  /*
+  * Construct an HTTP response that contains the information that we just stored
+  * in "local!records".
+  */
+  #"SYSTEM_SYSRULES_httpResponse_v1"(
+    /*
+    * Set an HTTP header that tells the client that the body of the response
+    * will be JSON-encoded.
+    */
+    headers: {
+      #"SYSTEM_SYSRULES_httpHeader"(
+        name: "Content-Type",
+        value: "application/json"
+      )
+    },
+    /*
+    * JSON-encode the value of "local!records" and place it in the response body.
+    */
+    body: #"SYSTEM_SYSRULES_toJson_v1"(value: local!records)
+  )
+)</a:expression>
+        <a:urlAlias>fetch-emlpoyee-data</a:urlAlias>
+        <a:httpMethod>GET</a:httpMethod>
+        <a:system>false</a:system>
+        <a:requestBodyType>NONE</a:requestBodyType>
+    </webApi>
+    <roleMap>
+        <role name="web_api_administrator">
+            <users/>
+            <groups>
+                <groupUuid>_e-0000e74a-756f-8000-9af6-01075c01075c_1780</groupUuid>
+            </groups>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>WebApiRequest?list</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <el>
+                <a:path/>
+                <a:queryParameters>
+                    <a:name>employeeid</a:name>
+                    <a:value>5002</a:value>
+                </a:queryParameters>
+                <a:body/>
+            </el>
+        </value>
+    </typedValue>
+    <history>
+        <historyInfo versionUuid="35796a74-7f6e-4c24-add3-4b5df5f136d8"/>
+    </history>
+</webApiHaul>

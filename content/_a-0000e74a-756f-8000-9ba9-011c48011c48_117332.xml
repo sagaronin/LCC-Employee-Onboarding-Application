@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e74a-756f-8000-9ba9-011c48011c48_117343</versionUuid>
+    <rule>
+        <name>LCC_EOA_GetEmployeeById</name>
+        <uuid>_a-0000e74a-756f-8000-9ba9-011c48011c48_117332</uuid>
+        <description>This expression rule returns the details of the selected employee based on the employee id provided</description>
+        <parentUuid>_a-0000e74a-756f-8000-9ba9-011c48011c48_106108</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>#"SYSTEM_SYSRULES_queryRecordType_v1"(
+  recordType: #"urn:appian:record-type:v1:863cbd14-19a4-47f2-ad58-225a3714cb31",
+  filters: #"SYSTEM_SYSRULES_queryFilter"(
+    field: #"urn:appian:record-field:v1:863cbd14-19a4-47f2-ad58-225a3714cb31/d54f78ac-4c7a-4d67-98f3-2baa66f3f1e0",
+    operator: "=",
+    value: ri!givenId
+  ),
+  pagingInfo: #"SYSTEM_SYSRULES_pagingInfo"(
+    startIndex: 1,
+    batchSize: 1
+  )
+).data
+</definition>
+        <namedTypedValue>
+            <name>givenId</name>
+            <type>
+                <name>int</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>legacy</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e74a-756f-8000-9ba9-011c48011c48_117343"/>
+    </history>
+</contentHaul>
